@@ -16,8 +16,6 @@ RUN chown -R ${username}:${username} /home/${username}
 RUN chmod 700 /home/${username}
 RUN chown -R root /home/${username}/.${shell}rc
 RUN chmod 550 /home/${username}/.${shell}rc
-# COPY ${datadir}/single.${shell} /bin
-# RUN chmod 755 /bin/single.${shell}
 
 COPY ${datadir}/sshd_config /etc/ssh/sshd_config
 COPY ${datadir}/id_ed25519_fibonacci.pub /etc/ssh/authorized_keys
