@@ -6,7 +6,7 @@ if [[ -f ${ID_FILE} ]]; then
 	CONTAINER_ID=`cat ${ID_FILE}`
 	echo "Killing container $(cat ${ID_FILE}) ..."
 	echo
-	docker stop ${CONTAINER_ID} 2&>1 >/dev/null
+	docker stop ${CONTAINER_ID} 2>&1 >/dev/null
 fi
 
 docker build -t minimal-alpine .
