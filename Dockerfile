@@ -8,7 +8,7 @@ ARG hostname=FRAT
 RUN apk add --no-cache openssh
 RUN apk add --no-cache ${shell}
 
-RUN adduser -D -s /bin/${shell} -h /home/fibonacci fibonacci
+RUN adduser -D -s /bin/${shell} -h /home/${username} ${username}
 RUN echo "${username}:*" | chpasswd -e
 RUN echo "${hostname}" > /etc/hostname
 COPY ${datadir}/.${shell}rc /home/${username}
@@ -16,6 +16,8 @@ RUN chown -R ${username}:${username} /home/${username}
 RUN chmod 700 /home/${username}
 RUN chown -R root /home/${username}/.${shell}rc
 RUN chmod 550 /home/${username}/.${shell}rc
+# COPY ${datadir}/single.${shell} /bin
+# RUN chmod 755 /bin/single.${shell}
 
 COPY ${datadir}/sshd_config /etc/ssh/sshd_config
 COPY ${datadir}/id_ed25519_fibonacci.pub /etc/ssh/authorized_keys
