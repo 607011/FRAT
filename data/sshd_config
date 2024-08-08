@@ -6,9 +6,11 @@ PermitEmptyPasswords no
 PrintMotd no
 TCPKeepAlive yes
 PermitRootLogin no
-MaxSessions 1
+Subsystem sftp internal-sftp
+MaxStartups 1
 
 Match User fibonacci
+    MaxSessions 1
     # ChrootDirectory /pfad/zum/chroot
     AllowTCPForwarding no
     X11Forwarding no
