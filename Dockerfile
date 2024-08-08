@@ -21,8 +21,11 @@ RUN chmod 550 /home/${username}/.${shell}rc
 
 COPY ${datadir}/sshd_config /etc/ssh/sshd_config
 COPY ${datadir}/id_ed25519_fibonacci.pub /etc/ssh/authorized_keys
+RUN chmod 644 /etc/ssh/authorized_keys
 COPY ${datadir}/ssh_host_ed25519_key /etc/ssh/ssh_host_ed25519_key
+RUN chmod 600 /etc/ssh/ssh_host_ed25519_key
 COPY ${datadir}/ssh_host_ed25519_key.pub /etc/ssh/ssh_host_ed25519_key.pub
+RUN chmod 644 /etc/ssh/ssh_host_ed25519_key.pub
 
 EXPOSE 2222:22/tcp
 
