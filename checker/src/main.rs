@@ -10,9 +10,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     io::stdout().flush().unwrap();
     let file = File::open(filename)?;
     let reader = BufReader::new(file);
-    let mut prev: BigInt = BigInt::from(0);
-    let mut next: BigInt = BigInt::from(1);
-    let mut n: u64 = 0;
+    let mut prev = BigInt::from(0);
+    let mut next = BigInt::from(1);
+    let mut n = 0u64;
     for line in reader.lines() {
         let num_str = line?;
         let num: BigInt = num_str.parse()?;
