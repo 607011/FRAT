@@ -7,5 +7,6 @@ Minimal Alpine Linux in Docker container
 ## Build & Run
 
 ```
+cd producer
 ./run.sh
 ```
