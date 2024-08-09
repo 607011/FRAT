@@ -4,7 +4,7 @@ use num_bigint::BigInt;
 
 fn main() -> std::io::Result<()> {
     let chunk_size = 100_000;
-    let filename = "../../../checker/fibonacci.txt";
+    let filename = "fibonacci.txt";
     let mut file = File::create(filename)?;
     let mut writer = BufWriter::new(&mut file);
     let mut a = BigInt::from(0);
